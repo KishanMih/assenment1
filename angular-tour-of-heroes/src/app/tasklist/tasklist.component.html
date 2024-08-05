@@ -1,0 +1,89 @@
+<div class="container-fluid h-100 w-100">
+
+    <div class="card border-0 w-100" >
+        <div class="card-body">
+            
+            <div><h3>Task Management System</h3>
+             <div *ngIf="!createform">
+            <div class="mt-5"><b>All Task details </b></div>
+            <div class="text-end"><button (click)="traddTable()" class="btn  btn-primary">Add Task</button></div>
+            <table  #myTableRef class="table  table-striped w-100">
+                <thead class="thead-light-header">
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Due date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <!-- {{taskdata}} -->
+                    <tr *ngFor="let item of taskdata ;let i = index">
+                        <th>{{item.sn}}</th>
+                        <td>{{item.Title}}</td>
+                        <td>{{item.status}}</td>
+                        <td>{{item.priority}}</td>
+                        <td>{{item.Due_date}}</td>
+                        <td><i class="fas fa-edit"  id="editimg" (click)="trupdate($event, item, i)"></i></td>
+                        <td (click)="trdelete(i)"><i class="fa-solid fa-trash" id="deleteimg"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+           </div>
+           <div class="card  w-50" *ngIf="createform">
+            <div class=" card-header"><h4><b>Create task</b></h4></div>
+             <div class="card-body">
+                
+                <form   #userLogin="ngForm" (ngSubmit)="onSubmit(userLogin.value)">
+                    <div class="mb-3"><label for="ID" class="form-label">ID no.</label><input type="number"  class="form-control"name="ID" id="Id"ngModel required ></div>
+                    <div class="mb-3"><label for="title" class="form-label">TITLE </label><input type="text"class="form-control" name="title"id="title"   ngModel required></div>
+                    <!-- <div class="mb-3"><label for="title" class="form-label">status</label><input type="text" class="form-control"name="status"id="title"   ngModel required></div> -->
+                    <div class="mb-3"><label for="priority" class="form-label">Priority</label><select type="text" class="form-control" name="priority"id="priority"   ngModel required>
+                        <option value="Low">Low</option>
+                        <option value="Mideum">Mideum</option>
+                        <option value="High">High</option>
+                    </select></div>
+                    <div class="mb-3"><label for="Due_date" class="form-label">Due date</label><input type="text"  class="form-control"name="Due_date"id="Due_date"  ngModel required></div>
+                    <div class="mb-3"><label for="taskstatus" class="form-label">Status</label><select type="text" class="form-select"name="taskstatus"id="taskstatus"  ngModel required>
+                        <option value="Scceuss">Scceuss</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Reject">Reject</option>
+                    </select></div>
+                    <div class="d-flex text-end justify-content-end">
+                    <div><button class="btn btn-danger m-2" (click)="createformclose()">Cancel</button></div><div><button type="submit" class="btn btn-success m-2" >Save</button></div></div>
+                </form>
+               
+             </div>
+           </div>
+
+           <div class="card  w-50" *ngIf="updateform">
+            <div class=" card-header"><h4><b>Update task</b></h4></div>
+             <div class="card-body">
+                
+                <form   #userLogin="ngForm" (ngSubmit)="onSubmit(userLogin.value)">
+                    <div class="mb-3"><label for="ID" class="form-label">ID no.</label><input type="number"  class="form-control"name="ID" id="Id"ngModel required ></div>
+                    <div class="mb-3"><label for="title" class="form-label">TITLE </label><input type="text"class="form-control" name="title"id="title"   ngModel required></div>
+                    <!-- <div class="mb-3"><label for="title" class="form-label">status</label><select type="text" class="form-control"name="status"id="title"   ngModel required> -->
+
+                    <!-- </select></div> -->
+                    <div class="mb-3"><label for="priority" class="form-label">Priority</label><input type="text" class="form-control" name="priority"id="priority"   ngModel required></div>
+                    <div class="mb-3"><label for="Due_date" class="form-label">Due date</label><input type="text"  class="form-control"name="Due_date"id="Due_date"  ngModel required></div>
+                    <div class="mb-3"><label for="taskstatus" class="form-label">Status</label><select type="text" class="form-select"name="taskstatus"id="taskstatus"  ngModel required>
+                        <option value="Scceuss">Scceuss</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Reject">Reject</option>
+                    </select></div>
+                    <div class="d-flex text-end justify-content-end">
+                    <div><button class="btn btn-danger m-2" (click)="createformclose()">Cancel</button></div><div><button type="submit" class="btn btn-success m-2" >Save</button></div></div>
+                </form>
+               
+             </div>
+           </div>
+          </div>
+        </div>
+    </div>
+    
