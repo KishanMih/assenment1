@@ -119,6 +119,7 @@ onSubmit(formData: any) {
 let trlength=this.myTableRef?.nativeElement.querySelectorAll('tbody tr')
 console.log(trlength)
   console.log(formData);
+  debugger;
   if(formData.ID !=='' && formData.taskstatus !=='' && formData.priority !=='' && formData.title !==''){
   const obj = {
     sn: formData.ID,
