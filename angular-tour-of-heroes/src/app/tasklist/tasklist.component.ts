@@ -17,6 +17,8 @@ export class TasklistComponent {
 
   // public myTableRef:any 
   public taskdata:any;
+  public tablelistdata:boolean=true;
+  public selecttrvalue:any;;
 checkoutForm: any;
 // profileForm: FormGroup;
  public createform:boolean=false;
@@ -85,17 +87,27 @@ this.taskdata.splice(x,1)
 
 traddTable() {
   this.createform=true;
+  this.tablelistdata=false
 }
 trupdate(event: MouseEvent, item: any, index: number) {
 
   console.log('Edit icon clicked', event);
     console.log('Item:', item);
     console.log('Index:', index);
+    this.tablelistdata=false;
+    this.updateform=true;
+    this.selecttrvalue=item;
+    const objs = {
+      sn: this.selecttrvalue.ID,
+      status: this.selecttrvalue.taskstatus ,
+      priority:  this.selecttrvalue.priority,
+      Due_date: this.selecttrvalue.Due_date,
+      Title: this.selecttrvalue.title
+    }
+    debugger;
+    console.log(objs )
 }
-createformclose(){
-  this.createform=false;
-}
-  
+
 formData = {
   ID: '',
   Title: '',
@@ -107,6 +119,7 @@ onSubmit(formData: any) {
 let trlength=this.myTableRef?.nativeElement.querySelectorAll('tbody tr')
 console.log(trlength)
   console.log(formData);
+  if(formData.ID !=='' && formData.taskstatus !=='' && formData.priority !=='' && formData.title !==''){
   const obj = {
     sn: formData.ID,
     status:formData.taskstatus ,
@@ -116,6 +129,12 @@ console.log(trlength)
   }
   this.taskdata.push(obj)
   this.createform=false;
+  this.tablelistdata=true;
 }
-
+}
+createformclose(){
+  this.createform=false;
+  this.tablelistdata=true;
+  this.updateform=false;
+}
 }

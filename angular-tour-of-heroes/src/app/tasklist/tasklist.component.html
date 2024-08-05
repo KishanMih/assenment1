@@ -4,7 +4,7 @@
         <div class="card-body">
             
             <div><h3>Task Management System</h3>
-             <div *ngIf="!createform">
+             <div *ngIf="tablelistdata">
             <div class="mt-5"><b>All Task details </b></div>
             <div class="text-end"><button (click)="traddTable()" class="btn  btn-primary">Add Task</button></div>
             <table  #myTableRef class="table  table-striped w-100">
@@ -65,7 +65,7 @@
              <div class="card-body">
                 
                 <form   #userLogin="ngForm" (ngSubmit)="onSubmit(userLogin.value)">
-                    <div class="mb-3"><label for="ID" class="form-label">ID no.</label><input type="number"  class="form-control"name="ID" id="Id"ngModel required ></div>
+                    <div class="mb-3"><label for="ID" class="form-label">ID no.</label><input type="number"  class="form-control"name="ID" id="Id" [(ngModel)]="selecttrvalue.sn"required ></div>
                     <div class="mb-3"><label for="title" class="form-label">TITLE </label><input type="text"class="form-control" name="title"id="title"   ngModel required></div>
                     <!-- <div class="mb-3"><label for="title" class="form-label">status</label><select type="text" class="form-control"name="status"id="title"   ngModel required> -->
 
