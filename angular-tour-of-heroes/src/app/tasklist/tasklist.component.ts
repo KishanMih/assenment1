@@ -102,10 +102,10 @@ trupdate(event: MouseEvent, item: any, index: number) {
       status: this.selecttrvalue.taskstatus ,
       priority:  this.selecttrvalue.priority,
       Due_date: this.selecttrvalue.Due_date,
-      Title: this.selecttrvalue.title
+      Title: this.selecttrvalue.Title
     }
     debugger;
-    console.log(objs )
+    console.log(index);
 }
 
 formData = {
@@ -137,4 +137,5 @@ createformclose(){
   this.tablelistdata=true;
   this.updateform=false;
 }
+
 }

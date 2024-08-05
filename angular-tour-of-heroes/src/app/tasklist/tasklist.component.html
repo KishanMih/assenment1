@@ -66,19 +66,19 @@
                 
                 <form   #userLogin="ngForm" (ngSubmit)="onSubmit(userLogin.value)">
                     <div class="mb-3"><label for="ID" class="form-label">ID no.</label><input type="number"  class="form-control"name="ID" id="Id" [(ngModel)]="selecttrvalue.sn"required ></div>
-                    <div class="mb-3"><label for="title" class="form-label">TITLE </label><input type="text"class="form-control" name="title"id="title"   ngModel required></div>
+                    <div class="mb-3"><label for="title" class="form-label">TITLE </label><input type="text"class="form-control" name="title"id="title" [(ngModel)]="selecttrvalue.Title"  ngModel required></div>
                     <!-- <div class="mb-3"><label for="title" class="form-label">status</label><select type="text" class="form-control"name="status"id="title"   ngModel required> -->
 
                     <!-- </select></div> -->
-                    <div class="mb-3"><label for="priority" class="form-label">Priority</label><input type="text" class="form-control" name="priority"id="priority"   ngModel required></div>
-                    <div class="mb-3"><label for="Due_date" class="form-label">Due date</label><input type="text"  class="form-control"name="Due_date"id="Due_date"  ngModel required></div>
-                    <div class="mb-3"><label for="taskstatus" class="form-label">Status</label><select type="text" class="form-select"name="taskstatus"id="taskstatus"  ngModel required>
+                    <div class="mb-3"><label for="priority" class="form-label">Priority</label><input type="text" class="form-control" name="priority"id="priority"  [(ngModel)]="selecttrvalue.priority" ngModel required></div>
+                    <div class="mb-3"><label for="Due_date" class="form-label">Due date</label><input type="text"  class="form-control"name="Due_date"id="Due_date"[(ngModel)]="selecttrvalue.Due_date" ngModel required></div>
+                    <div class="mb-3"><label for="taskstatus" class="form-label">Status</label><select type="text" class="form-select"name="taskstatus"id="taskstatus" [(ngModel)]="selecttrvalue.status"  ngModel required>
                         <option value="Scceuss">Scceuss</option>
                         <option value="Pending">Pending</option>
                         <option value="Reject">Reject</option>
                     </select></div>
                     <div class="d-flex text-end justify-content-end">
-                    <div><button class="btn btn-danger m-2" (click)="createformclose()">Cancel</button></div><div><button type="submit" class="btn btn-success m-2" >Save</button></div></div>
+                    <div><button class="btn btn-danger m-2" (click)="createformclose()">Cancel</button></div><div><button type="submit" class="btn btn-success m-2" >update</button></div></div>
                 </form>
                
              </div>
